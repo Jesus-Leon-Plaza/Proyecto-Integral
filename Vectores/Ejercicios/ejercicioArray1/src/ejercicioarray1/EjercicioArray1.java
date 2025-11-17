@@ -4,6 +4,7 @@
  */
 package ejercicioarray1;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -30,7 +31,7 @@ public class EjercicioArray1 {
 
             switch (opcion) {
                 case 1:
-                    definirArray();
+                    definirArray(num);
                     break;
                 case 2:
 
@@ -46,7 +47,7 @@ public class EjercicioArray1 {
                     mostrar_Inversa(num, TAM);
                     break;
                 case 3:
-                    ejercicio3();
+                    ejercicio3(num);
                     break;
                 case 4:
                     rellenar_Array_Char();
@@ -58,8 +59,10 @@ public class EjercicioArray1 {
                     numero_Cuadrado_Cubo();
                     break;
                 case 7:
+                    rotar_Array(num);
                     break;
                 case 8:
+                    ejercicio_8(num);
                     break;
                 case 9:
                     break;
@@ -91,22 +94,21 @@ public class EjercicioArray1 {
         System.out.println();
     }
 
-    public static int[] rellenar_Array() {
+    public static void rellenar_Array(int[] num) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("De que tamaño es el array?");
+        /*System.out.println("De que tamaño es el array?");
         int tamanno = sc.nextInt();
-        int[] num = new int[tamanno];
-
-        for (int i = 0; i < tamanno; i++) {
+        num = new int[tamanno];
+         */
+        for (int i = 0; i < num.length; i++) {
             System.out.println("Introduce los datos para el vector");
             num[i] = sc.nextInt();
         }
-        return num;
     }
 
-    public static void definirArray() {
-        int[] num = new int[12];
+    public static void definirArray(int[] num) {
+        num = new int[12];
         for (int i = 0; i < num.length; i++) {
             num[1] = 40;
             num[2] = -2;
@@ -135,7 +137,7 @@ public class EjercicioArray1 {
         System.out.println();
     }
 
-    public static void ejercicio3() {
+    public static void ejercicio3(int[] num) {
         Scanner sc = new Scanner(System.in);
         int opcion;
 
@@ -153,7 +155,7 @@ public class EjercicioArray1 {
 
             switch (opcion) {
                 case 1:
-                    array = rellenar_Array();
+                    rellenar_Array(num);
                     break;
                 case 2:
                     if (array != null) {
@@ -193,7 +195,7 @@ public class EjercicioArray1 {
         } while (opcion != 0);
     }
 
-    public static char[] rellenar_Array_Char() {
+    public static void rellenar_Array_Char() {
 
         Scanner sc = new Scanner(System.in);
         int tamanno = 10;
@@ -212,7 +214,6 @@ public class EjercicioArray1 {
         }
         System.out.println();
 
-        return simbolo;
     }
 
     public static int[] array_Reversa() {
@@ -246,8 +247,6 @@ public class EjercicioArray1 {
 
     public static void numero_Cuadrado_Cubo() {
 
-        Scanner sc = new Scanner(System.in);
-
         int tamanno = 20;
 
         int[] numero = new int[tamanno];
@@ -276,5 +275,30 @@ public class EjercicioArray1 {
             System.out.println("Array cubo: " + i + cubo[i] + " ");
         }
 
+    }
+
+    public static void rotar_Array(int[] num) {
+        num = new int[5];
+        rellenar_Array(num);
+
+        int ultimo = num[num.length - 1];
+
+        for (int i = num.length - 1; i > 0; i--) {
+            num[i] = num[i - 1];
+        }
+
+        num[0] = ultimo;
+
+        mostrar(num, 5);
+    }
+    
+    public static void ejercicio_8(int[] num){
+        num = new int[10];
+        
+        for (int i = 0; i < num.length; i++) {
+            num[i] = ((int) Math.random() * 21);
+        }
+        
+        mostrar(num, 10);
     }
 }
