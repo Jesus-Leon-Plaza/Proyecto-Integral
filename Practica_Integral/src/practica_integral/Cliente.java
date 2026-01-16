@@ -31,6 +31,38 @@ public class Cliente {
         this.localidad = localidad;
         this.codigoPostal = codigoPostal;
     }
+
+    //Getters
+    public String getDni() {
+        return dni;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getLocalidad() {
+        return localidad;
+    }
+
+    public String getCodigoPostal() {
+        return codigoPostal;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente \n{ " + 
+                " dni=" + dni + 
+                "\n nombre=" + nombre + 
+                "\n direccion=" + direccion + 
+                "\n localidad=" + localidad + 
+                "\n codigoPostal=" + codigoPostal + 
+                "\n }";
+    }
     
     
     
